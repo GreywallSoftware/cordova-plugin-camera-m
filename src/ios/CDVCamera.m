@@ -223,9 +223,11 @@ static NSString* MIME_JPEG    = @"image/jpeg";
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * _Nonnull action) {
             // Open settings
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]
-                                               options:@{}
-                                     completionHandler:nil];
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+              NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+              [[UIApplication sharedApplication] openURL:settingsURL options:@{} completionHandler:nil];
+          });
+          
             [weakSelf sendNoPermissionResult:callbackId];
         }]];
 

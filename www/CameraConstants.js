@@ -62,23 +62,18 @@ module.exports = {
      * @enum {number}
      */
     PictureSourceType: {
-        /** Choose image from the device's photo library (same as SAVEDPHOTOALBUM for Android) */
+        /**
+         * Choose image from the device's photo library.
+         **/
         PHOTOLIBRARY: 0,
         /** Take picture from camera */
         CAMERA: 1,
-        /** Choose image only from the device's Camera Roll album (same as PHOTOLIBRARY for Android) */
+        /**
+         * Same as PHOTOLIBRARY, when running on Android, or iOS 14+.
+         * On iOS older than 14, an image can only be chosen from the device's Camera Roll album
+         * with this setting.
+         **/
         SAVEDPHOTOALBUM: 2
-    },
-    /**
-     * Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
-     * @enum {number}
-     */
-    PopoverArrowDirection: {
-        ARROW_UP: 1,
-        ARROW_DOWN: 2,
-        ARROW_LEFT: 4,
-        ARROW_RIGHT: 8,
-        ARROW_ANY: 15
     },
     /**
      * @enum {number}
